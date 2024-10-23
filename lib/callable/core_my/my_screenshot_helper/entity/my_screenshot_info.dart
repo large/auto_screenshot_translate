@@ -7,6 +7,7 @@ class MyScreenshotInfo {
   String screenshotTitle03 = "";
   String screenshotTitle04 = "";
   String screenshotTitle05 = "";
+  String screenshotTitle06 = "";
 
   /// title.strings (현재사용중)
   String screenshotSubTitle01 = "";
@@ -14,8 +15,9 @@ class MyScreenshotInfo {
   String screenshotSubTitle03 = "";
   String screenshotSubTitle04 = "";
   String screenshotSubTitle05 = "";
+  String screenshotSubTitle06 = "";
 
-  String screenshotStartLanguageCode = "en";
+  String screenshotStartLanguageCode = "no";
 
   String googleTranslateApiKey = "";
 
@@ -25,11 +27,13 @@ class MyScreenshotInfo {
     required this.screenshotTitle03,
     required this.screenshotTitle04,
     required this.screenshotTitle05,
+    required this.screenshotTitle06,
     required this.screenshotSubTitle01,
     required this.screenshotSubTitle02,
     required this.screenshotSubTitle03,
     required this.screenshotSubTitle04,
     required this.screenshotSubTitle05,
+    required this.screenshotSubTitle06,
     required this.screenshotStartLanguageCode,
     required this.googleTranslateApiKey,
   });

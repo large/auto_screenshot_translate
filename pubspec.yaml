@@ -18,12 +18,12 @@ dependencies:
   basic_utils: ^5.4.2
 
   http: ^1.1.0
-  path: ^1.8.2
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 
 

@@ -35,6 +35,7 @@ class MyScreenshotHelperSpell {
         myScreenshotInfo.screenshotTitle03,
         myScreenshotInfo.screenshotTitle04,
         myScreenshotInfo.screenshotTitle05,
+        myScreenshotInfo.screenshotTitle06,
         fromLang: myScreenshotInfo.screenshotStartLanguageCode,
         fileName: 'keyword.strings',
         myScreenshotInfo.googleTranslateApiKey,
@@ -47,6 +48,7 @@ class MyScreenshotHelperSpell {
         myScreenshotInfo.screenshotSubTitle03,
         myScreenshotInfo.screenshotSubTitle04,
         myScreenshotInfo.screenshotSubTitle05,
+        myScreenshotInfo.screenshotSubTitle06,
         fromLang: myScreenshotInfo.screenshotStartLanguageCode,
         fileName: 'title.strings',
         myScreenshotInfo.googleTranslateApiKey,
@@ -165,6 +167,7 @@ class MyScreenshotHelperSpell {
       String screenString3,
       String screenString4,
       String screenString5,
+      String screenString6,
       String googleTranslateApiKey,
       {required String fromLang,
       required String fileName,
@@ -177,17 +180,20 @@ class MyScreenshotHelperSpell {
       late String resultScreenString3 = "";
       late String resultScreenString4 = "";
       late String resultScreenString5 = "";
+      late String resultScreenString6 = "";
       if (targetLang == fromLang ||
           (screenString1 == "" &&
               screenString2 == "" &&
               screenString3 == "" &&
               screenString4 == "" &&
-              screenString5 == "")) {
+              screenString5 == "" &&
+              screenString6 == "")) {
         resultScreenString1 = screenString1;
         resultScreenString2 = screenString2;
         resultScreenString3 = screenString3;
         resultScreenString4 = screenString4;
         resultScreenString5 = screenString5;
+        resultScreenString6 = screenString6;
       } else {
         resultScreenString1 = await GoogleTranslateSpell().translate(
             fromLang, targetLang, screenString1, googleTranslateApiKey);
@@ -199,6 +205,8 @@ class MyScreenshotHelperSpell {
             fromLang, targetLang, screenString4, googleTranslateApiKey);
         resultScreenString5 = await GoogleTranslateSpell().translate(
             fromLang, targetLang, screenString5, googleTranslateApiKey);
+        resultScreenString6 = await GoogleTranslateSpell().translate(
+            fromLang, targetLang, screenString6, googleTranslateApiKey);
       }
 
       //각 폴더에 맞게 배분해주자.
@@ -207,12 +215,12 @@ class MyScreenshotHelperSpell {
 
       File file = await File('$PATH/$langs/$fileName').create(recursive: true);
       file.writeAsString(_makeTemplate(resultScreenString1, resultScreenString2,
-          resultScreenString3, resultScreenString4, resultScreenString5));
+          resultScreenString3, resultScreenString4, resultScreenString5, resultScreenString6));
     }
   }
 
   String _makeTemplate(String screenString1, String screenString2,
-      String screenString3, String screenString4, String screenString5) {
+      String screenString3, String screenString4, String screenString5, String screenString6) {
     return '''
 
 "_01" = "$screenString1";
@@ -224,6 +232,8 @@ class MyScreenshotHelperSpell {
 "_04" = "$screenString4";
 
 "_05" = "$screenString5";
+
+"_06" = "$screenString6";
 
   ''';
   }
@@ -237,7 +247,8 @@ class MyScreenshotHelperSpell {
           (basename(element.path).contains('_02')) ||
           (basename(element.path).contains('_03')) ||
           (basename(element.path).contains('_04')) ||
-          (basename(element.path).contains('_05'))) {
+          (basename(element.path).contains('_05')) ||
+          (basename(element.path).contains('_06'))) {
         framedFiles.add(element);
       }
     }
