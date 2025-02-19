@@ -10,6 +10,7 @@ Future<void> main() async {
     screenshotTitle04: "",
     screenshotTitle05: "",
     screenshotTitle06: "",
+    screenshotTitle07: "",
 
     // using (screenshot top text)
     screenshotSubTitle01: "hello world",
@@ -18,6 +19,7 @@ Future<void> main() async {
     screenshotSubTitle04: "do your best",
     screenshotSubTitle05: "you are the best",
     screenshotSubTitle06: "sod off",
+    screenshotSubTitle07: "another one",
 
     // screenshot start language for translate
     screenshotStartLanguageCode: "en",
